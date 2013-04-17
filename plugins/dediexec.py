@@ -6,12 +6,12 @@ class DediPlugin(BasePlugin):
 
     def __init__(self):
         self.commands = [
-            (self.execPython, {'startswith':'('}),
+            (self.execDedi, {'startswith':'('}),
             (self.dedi_on, {'equals':'dedi on'}),
             (self.dedi_off, {'equals':'dedi off'}),
             ]
 
-    def execPython(self, channel, code):
+    def execDedi(self, channel, code):
         f = open('file', 'w')
         f.write(code)
         f.close()
