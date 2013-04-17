@@ -56,7 +56,7 @@ class AliasPlugin(BasePlugin):
         if len(tokens) > 2:
             shortcut = tokens[1]
             command = ' '.join(tokens[2:])
-            self.bot.aliasCommands[shortcut] = command
+            self.aliasCommands[shortcut] = command
             f = open('../alias_commands', 'w')
             f.write(json.dumps(self.aliasCommands))
             f.close()
@@ -68,8 +68,11 @@ class AliasPlugin(BasePlugin):
 
     def alias_command(self, channel, msg):
         command = msg.split()[0]
+        print command
+        print self.aliasCommands
         if self.aliasCommands.get(command, False):
-            self.bot.processPluginCommands(channel, self.aliasCommands[command])
+            print 'comm:' + self.aliasCommands[command]
+            self.bot.processPluginCommands(channel, self.aliasCommands[command][1:])
             return True
         return False
 
