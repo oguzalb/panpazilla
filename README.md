@@ -49,7 +49,7 @@ lists aliases
 displays help, hardcoded for now  
 
 ##=dedi plugin=
-A sceme subset language plugin, it includes a very basic parser that ignores what it cant parse  
+A scheme subset language plugin, it includes a very basic parser that ignores what it cant parse  
 Dedi interpreter is included  
 examples:  
 
