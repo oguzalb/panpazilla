@@ -16,7 +16,7 @@ class DediPlugin(BasePlugin):
         f.write(code)
         f.close()
         try:
-            output = subprocess32.check_output(['python', os.path.join(os.path.dirname(__file__), 'dedi/interpreter.py'), 'file'], timeout=1)
+            output = subprocess32.check_output(['dedi', 'file'], timeout=1)
             print output
             if not output.startswith('/') and not output.startswith('.') and len(output) < 512:
                 self.bot.msg(channel, output)

@@ -73,7 +73,7 @@ class PanpazillaBotFactory(protocol.ClientFactory):
 from twisted.internet import reactor
 
 if __name__ == "__main__":
-    chan = 'pyistanbul'
+    chan = 'suveys'
     reactor.connectTCP('irc.freenode.net', 6667, PanpazillaBotFactory(chan))
     reactor.run()
 
