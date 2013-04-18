@@ -2,7 +2,7 @@ import re
 
 patterns = [('\(', 'OPAR'),
             ('\)', 'CPAR'),
-            ('[A-Za-z\+\-][A-Za-z0-9]*', 'IDEN'),
+            ('[\-_A-Za-z\+\-][\-_A-Za-z0-9]*', 'IDEN'),
             ('[0-9]+', 'NUM'),
             ('"[^"]*"', 'STR'),
             ]

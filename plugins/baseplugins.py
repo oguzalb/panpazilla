@@ -72,7 +72,7 @@ class AliasPlugin(BasePlugin):
         print self.aliasCommands
         if self.aliasCommands.get(command, False):
             print 'comm:' + self.aliasCommands[command]
-            self.bot.processPluginCommands(channel, self.aliasCommands[command][1:])
+            self.bot.processPluginCommands(channel, self.aliasCommands[command])
             return True
         return False
 
