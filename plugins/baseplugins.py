@@ -56,10 +56,11 @@ class AliasPlugin(BasePlugin):
         if len(tokens) > 2:
             shortcut = tokens[1]
             command = ' '.join(tokens[2:])
-            self.bot.aliasCommands[shortcut] = command
+            self.aliasCommands[shortcut] = command
             f = open('../alias_commands', 'w')
             f.write(json.dumps(self.aliasCommands))
             f.close()
+            print self.aliasCommands
             self.bot.msg(channel, command + ' elayislara eklendi')
             return True
         else:
@@ -72,7 +73,7 @@ class AliasPlugin(BasePlugin):
         print self.aliasCommands
         if self.aliasCommands.get(command, False):
             print 'comm:' + self.aliasCommands[command]
-            self.bot.processPluginCommands(channel, self.aliasCommands[command][1:])
+            self.bot.processPluginCommands(channel, self.aliasCommands[command])
             return True
         return False
 
