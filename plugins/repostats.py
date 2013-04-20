@@ -1,10 +1,12 @@
 import requests
 from baseplugins import BasePlugin
+from baseplugins import add_help_text
 import json
 
 class RepoStatsPlugin(BasePlugin):
 
     def __init__(self):
+        add_help_text(';github username reponame  shows watchers and stars for this project')
         self.commands = ((self.getRepoStats, {'startswith':'github '}),)
 
     def getRepoStats(self, channel, msg):
