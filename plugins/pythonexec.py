@@ -7,10 +7,10 @@ class PythonPlugin(BasePlugin):
 
     def __init__(self):
         self.commands = [
-            (self.execPython, {'startswith':'>'}),
-            (self.python_on, {'equals':'python on'}),
-            (self.python_off, {'equals':'python off'}),
-            ]
+            (self.execPython, {'startswith': '>'}),
+            (self.python_on, {'equals': 'python on'}),
+            (self.python_off, {'equals': 'python off'}),
+        ]
 
     def execPython(self, channel, code):
         #if self.python_commands == False:
@@ -19,7 +19,7 @@ class PythonPlugin(BasePlugin):
             self.bot.msg(channel, 'exec?')
         elif code.__contains__('eval'):
             self.bot.msg(channel, 'eval?')
-        elif len(code)>=64:
+        elif len(code) >= 64:
             self.bot.msg(channel, 'sadece 64 byte alalim beyler')
         elif code.__contains__('import'):
             self.bot.msg(channel, 'import not allowed gulum')
@@ -28,8 +28,10 @@ class PythonPlugin(BasePlugin):
             f.write(code[1:])
             f.close()
             try:
-                output = subprocess32.check_output(['python', 'file'], timeout=1)
-                if not output.startswith('/') and not output.startswith('.') and len(output) < 512:
+                output = subprocess32.check_output(['python', 'file'],
+                                                   timeout=1)
+                if not output.startswith('/') and \
+                        not output.startswith('.') and len(output) < 512:
                     self.bot.msg(channel, output)
             except Exception, exc:
                 print exc

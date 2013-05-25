@@ -1,7 +1,7 @@
 import subprocess32
 from baseplugins import BasePlugin
 from baseplugins import add_help_text
-import os
+
 
 class DediPlugin(BasePlugin):
 
@@ -9,10 +9,10 @@ class DediPlugin(BasePlugin):
         add_help_text(';( dedi code\n')
         add_help_text('Example: ;(pr "hello")\n')
         self.commands = [
-            (self.execDedi, {'startswith':'('}),
-            (self.dedi_on, {'equals':'dedi on'}),
-            (self.dedi_off, {'equals':'dedi off'}),
-            ]
+            (self.execDedi, {'startswith': '('}),
+            (self.dedi_on, {'equals': 'dedi on'}),
+            (self.dedi_off, {'equals': 'dedi off'}),
+        ]
 
     def execDedi(self, channel, code):
         f = open('file', 'w')
@@ -21,7 +21,9 @@ class DediPlugin(BasePlugin):
         try:
             output = subprocess32.check_output(['dedi', 'file'], timeout=1)
             print output
-            if not output.startswith('/') and not output.startswith('.') and len(output) < 512:
+            if not output.startswith('/') and\
+                    not output.startswith('.') and\
+                    len(output) < 512:
                 self.bot.msg(channel, output)
         except Exception, exc:
             print exc
