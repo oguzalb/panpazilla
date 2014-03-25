@@ -33,7 +33,7 @@ Add the plugin to the plugins folder, and add it to the conf.py file
 ##=repo stats plugin=  
 
 ***Command***: *;github username repo*  
-Prints watchers and start for that repo  
+Prints watchers and stars for that repo  
 
 ##=alias plugin=  
 ***Command***: *;alias showpanpazilla github huseyinalb panpazilla*  
